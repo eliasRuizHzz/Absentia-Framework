@@ -1,0 +1,10 @@
+{
+	"company":"",
+	"db":{
+		"project_db_name":"",
+		"port":"27017",
+		"host":"localhost"
+	},
+	"secret_name":"",
+	"base_name":""
+}

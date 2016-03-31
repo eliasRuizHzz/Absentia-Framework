@@ -9,15 +9,17 @@ var fs = require("fs");
 var atob = require('atob')
 var Ext = require('./ext.js');
 
-DB.domain = "localhost";
-DB.port = "27017";
-DB.projectname = "project";
+var dataconfig = require("./data.json");
+
+DB.domain = dataconfig["db"]["host"];
+DB.port = dataconfig["db"]["port"];
+DB.projectname = dataconfig["db"]["project_db_name"];
 
 var instancesObj = require("./Configure.json");
 
 app.use(express.bodyParser());
 app.use(express.cookieParser());
-app.use(express.session({ secret: '©Project', cookie:{maxAge:(1000)*(60)*(60)}}));
+app.use(express.session({ secret: dataconfig["secret_name"], cookie:{maxAge:(1000)*(60)*(60)}}));
 app.use('/js', express.static('build/js'));
 app.use('/tags', express.static('build/js/tags'));
 app.use('/css', express.static('build/css'));
@@ -96,7 +98,7 @@ app.get('/:ins', function (req, res) {
 var server = app.listen(8080, function () {
   var host = server.address().address;
   var port = server.address().port;
-  console.log('©Project service listening at http://%s:%s', host, port);
+  console.log(dataconfig["base_name"]+' service listening at http://%s:%s', host, port);
 });
 
 
@@ -120,5 +122,5 @@ unploadFiles.post('/unpload/image/:image', function (req, res) {
 var fileSys = unploadFiles.listen(8081, function () {
   var host = fileSys.address().address;
   var port = fileSys.address().port;
-  console.log('project service listening at http://%s:%s', host, port);
+  console.log(dataconfig["base_name"]+' service listening at http://%s:%s', host, port);
 });

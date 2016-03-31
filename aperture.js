@@ -1,8 +1,10 @@
 var DB = require("thinkdb");
 
-DB.domain = "localhost";
-DB.port = "27017";
-DB.projectname = "project";
+var dataconfig = require("./data.json");
+
+DB.domain = dataconfig["db"]["host"];
+DB.port = dataconfig["db"]["port"];
+DB.projectname = dataconfig["db"]["project_db_name"];
 
 var ins = require("./Configure.json");
 ins = ins.instancias;

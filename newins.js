@@ -1,4 +1,5 @@
 var fs = require('fs');
+var dataconfig = require("./data.json");
 
 var name_ins = process.argv[2];
 
@@ -58,6 +59,7 @@ function create_json(ext) {
 				  if (err) {
 				    return console.log(err);
 				  }else{
+				  	data = data.split("Project").join(dataconfig["base_name"]);
 				  	data = data.split("123456789").join(name_ins);
 				  	fs.writeFile("./jsons/"+name_ins+"."+ext, data, function(err) {
 						if(err) {
