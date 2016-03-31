@@ -44,7 +44,11 @@ sudo node newins.js name-my-instance
 
 ## Crear tags/html unicos
 
-* Tags: <name-my-tag></name-my-tag>
+* Tags:
+
+~~~
+<name-my-tag></name-my-tag>
+~~~
 
 #### Se compone de:
 
