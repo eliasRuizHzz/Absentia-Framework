@@ -1,10 +1,1 @@
-{
-	"company":"",
-	"db":{
-		"project_db_name":"",
-		"port":"27017",
-		"host":"localhost"
-	},
-	"secret_name":"",
-	"base_name":""
-}
+{"db":{"project_db_name":"i","port":"a","host":"s"},"secret_name":1459458382834,"base_name":"e"}
